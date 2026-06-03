@@ -70,7 +70,7 @@ Open the project in your preferred code editor and run it locally.
 
 ### Smit Morjariya
 
-MERN Stack Developer
+Frontend Developer & Digital Creator
 
 📧 Email: [smit.8189@gmail.com](mailto:smit.8189@gmail.com)
 
@@ -80,8 +80,13 @@ https://www.linkedin.com/in/smit-morjariya021/
 🔗 GitHub:
 https://github.com/smitmorjariya
 
+
 📍 Gujarat, India
 
 ## 📄 License
 
 This project is available for educational and portfolio purposes.
+
+
+![GitHub Repo stars](https://img.shields.io/github/stars/smitmorjariya/PixelCraft_Website?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/smitmorjariya/PixelCraft_Website?style=for-the-badge)
