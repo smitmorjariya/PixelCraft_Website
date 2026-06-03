@@ -73,7 +73,7 @@ Frontend Developer & Digital Creator
 📧 Email: [smit.8189@gmail.com](mailto:smit.8189@gmail.com)
 
 🔗 LinkedIn:
-https://www.linkedin.com/in/smit-morjariya021/
+https://www.linkedin.com/in/smitmorjariya/
 
 🔗 GitHub:
 https://github.com/smitmorjariya
