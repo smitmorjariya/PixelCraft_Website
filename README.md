@@ -44,11 +44,11 @@ PixelCraft helps businesses establish a strong online presence through creative 
 
 The primary goal of this project is to provide businesses and startups with a modern digital presence that effectively showcases their services, expertise, and portfolio while generating quality leads.
 
-## 🌐 Live Demo
+// ## 🌐 Live Demo
 
-Add your live website URL here:
+// Add your live website URL here:
 
-https://your-website-url.com
+// https://your-website-url.com
 
 ## 📥 Installation
 
