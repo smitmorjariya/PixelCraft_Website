@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Playfair+Display:ital,wght@1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-bg: #070708;
+  --color-fg: #e2e2e2;
+  --color-accent: #10b981;
+  --color-muted: rgba(255, 255, 255, 0.4);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-surface: rgba(255, 255, 255, 0.02);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-fg font-sans selection:bg-accent selection:text-bg md:cursor-none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Reset cursor for interactive elements to ensure our custom cursor is the only one visible */
+  .md\:cursor-none *, 
+  .md\:cursor-none {
+    cursor: none !important;
+  }
+
+  h1, h2, h3 {
+    @apply tracking-tighter uppercase;
+  }
+}
+
+@layer utilities {
+  .editorial-title {
+    @apply text-[clamp(2.5rem,10vw,10rem)] font-[900] italic leading-[0.85] tracking-[-0.05em] uppercase;
+  }
+
+  .label-micro {
+    @apply text-[10px] uppercase tracking-[0.2em] font-medium text-muted;
+  }
+
+  .border-editorial {
+    @apply border-border;
+  }
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, 
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.rail-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* Ensure the mobile fullscreen navigation overlay has 100vh/100dvh height and behaves as a clean scrollable container */
+#fullscreen-mobile-overlay {
+  height: 100vh !important;
+  height: 100dvh !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;  /* IE 10+ */
+}
+
+#fullscreen-mobile-overlay::-webkit-scrollbar {
+  display: none !important; /* Safari and Chrome */
+}
+
+/* Highly optimized layout for medium height screens (e.g. AI Studio preview, smaller portrait phones) */
+@media (max-height: 780px) {
+  #fullscreen-mobile-overlay {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 4.5rem) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem) !important;
+  }
+
+  #overlay-scroll-container {
+    gap: 1rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  #overlay-mobile-nav {
+    margin-top: 0px !important;
+    gap: 0.5rem !important;
+  }
+
+  [id^="overlay-item-container-"] {
+    height: 3rem !important;
+  }
+
+  [id^="overlay-link-"] {
+    font-size: 2rem !important;
+  }
+  
+  [id^="overlay-link-"] span:first-child {
+    font-size: 2rem !important;
+  }
+
+  /* Compact spacing for the contact cards */
+  #overlay-social-grid {
+    gap: 0.5rem !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*             LANDSCAPE & COMPACT HEIGHT NAVIGATION OPTIMIZATION             */
+/* -------------------------------------------------------------------------- */
+
+/* Hide scrollbar completely while maintaining native momentum touch scroll */
+#overlay-scroll-container::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Advanced responsive targeting for low-height screens & horizontal mobile orientation */
+@media (max-height: 520px) {
+  /* Hide the Custom Cursor Follower/Dot completely on small-height viewports to maximize readability/touch targets */
+  .fixed.top-0.left-0.w-full.h-full.pointer-events-none.z-\[9999\] {
+    display: none !important;
+  }
+
+  /* Compact header height */
+  header {
+    height: 4rem !important;
+  }
+
+  /* Compact Toggle Button position and size to bypass safe-area clipping */
+  button[aria-label="Toggle Menu"] {
+    height: 4rem !important;
+    top: 0px !important;
+    right: calc(env(safe-area-inset-right, 0px) + 1.5rem) !important;
+  }
+
+  #fullscreen-mobile-overlay {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 3.25rem) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem) !important;
+    padding-left: calc(env(safe-area-inset-left, 0px) + 1.5rem) !important;
+    padding-right: calc(env(safe-area-inset-right, 0px) + 1.5rem) !important;
+  }
+
+  /* Tighter gap inside the inner scrolling container */
+  #overlay-scroll-container {
+    gap: 0.75rem !important;
+  }
+
+  /* Adjust vertical spacing inside mobile navigation link stack */
+  #overlay-mobile-nav {
+    margin-top: 0px !important;
+    padding-bottom: 0px !important;
+    gap: 0.25rem !important;
+  }
+
+  /* Constrain height of each link row dynamically to avoid overlap */
+  [id^="overlay-item-container-"] {
+    height: 2.5rem !important;
+  }
+
+  /* Gracefully scale navigation typography to fit horizontal grids without clipping */
+  [id^="overlay-link-"] {
+    font-size: 1.35rem !important;
+  }
+  
+  [id^="overlay-link-"] span:first-child {
+    font-size: 1.35rem !important;
+  }
+
+  /* Downscale the active-state indicator dot in landscape */
+  [class^="overlay-menu-dot-"] {
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  /* Reposition and flex layout for social contact cards side-by-side (saves vertical space!) */
+  #overlay-social-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Scale WhatsApp card to span normally across its share of columns if needed */
+  #overlay-link-whatsapp-card {
+    grid-column: span 1 !important; /* Force to align symmetrically as a 3-badge row */
+  }
+
+  /* Ultra-polished compact style for social links in short orientations */
+  .overlay-social-item {
+    padding: 0.5rem !important;
+    border-radius: 8px !important;
+  }
+
+  .overlay-social-item .w-8.h-8 {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+
+  .overlay-social-item .w-8.h-8 svg {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  .overlay-social-item .text-xs {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Make email label compact to avoid text wrapping constraints */
+  .overlay-social-item .text-white.tracking-tight {
+    font-size: 9px !important;
+    max-width: 90px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .overlay-social-item .text-\[9px\] {
+    font-size: 7px !important;
+    line-height: 1.0 !important;
+  }
+
+  .overlay-social-item svg:last-of-type {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  /* Ultra-clean footer block alignment */
+  #overlay-footer-details {
+    padding-top: 0.5rem !important;
+    gap: 0.35rem !important;
+  }
+
+  #overlay-social-header {
+    font-size: 8px !important;
+    margin-bottom: -2px !important;
+  }
+
+  #overlay-meta-footer {
+    padding-top: 0.35rem !important;
+    margin-top: 0px !important;
+  }
+}
+
+/* Hide WhatsApp Floating Widget completely when fullscreen menu is open for best UX */
+body.mobile-menu-active #whatsapp-widget-container {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.8) translateY(20px) !important;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+
+

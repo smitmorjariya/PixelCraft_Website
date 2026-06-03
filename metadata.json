@@ -1,0 +1,8 @@
+{
+  "name": "PixelCraft | Creative Studio",
+  "description": "High-end creative agency website with premium animations, interactive showcases, and modern dark mode design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
