@@ -91,145 +91,127 @@ async function startServer() {
       };
 
       // Auto-reply to User
-      const userMailOptions = {
-        from: `"PixelCraft | Creative Studio" <${emailUser}>`,
-        to: email,
-        subject: "Thank You for Contacting PixelCraft | Creative Studio",
-        html: `
-          <div style="font-family: sans-serif; background-color: #070708; color: #ffffff; padding: 40px; max-width: 600px; margin: auto; border-radius: 20px; border: 1px solid #1a1a1b;">
-            <div style="text-align: center; margin-bottom: 30px;">
-              <h1 style="color: #10b981; margin: 0; letter-spacing: 2px; font-weight: 900;">PIXELCRAFT</h1>
-            </div>
+      
+const userMailOptions = {
+  from: `"PixelCraft | Creative Studio" <${emailUser}>`,
+  to: email,
+  subject: "Thank You for Contacting PixelCraft | Creative Studio",
+  html: `
+    <div style="font-family: sans-serif; background-color: #070708; color: #ffffff; padding: 40px; max-width: 600px; margin: auto; border-radius: 20px; border: 1px solid #1a1a1b;">
+      
+      <div style="text-align: center; margin-bottom: 30px;">
+        <h1 style="color: #10b981; margin: 0; letter-spacing: 2px; font-weight: 900;">
+          PIXELCRAFT
+        </h1>
+        <p style="color: #888; text-transform: uppercase; font-size: 10px; letter-spacing: 4px; margin-top: 5px;">
+          Creative Studio
+        </p>
+      </div>
 
-            <div style="line-height: 1.6;">
-              <p>Hello <strong>${name}</strong>,</p>
-              <p>Thank you for contacting <strong>PixelCraft | Creative Studio</strong>.</p>
-              <p>We have successfully received your inquiry and our team will get back to you shortly.</p>
-              
-              <div style="background-color: #0c0c0d; padding: 20px; border-radius: 15px; margin: 25px 0; border: 1px solid #1a1a1b;">
-                <p style="color: #10b981; font-weight: bold; margin-top: 0;">Here are the details you submitted:</p>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                  <li style="margin-bottom: 10px;"><span style="color: #888;">• Full Name:</span> ${name}</li>
-                  <li style="margin-bottom: 10px;"><span style="color: #888;">• Email:</span> ${email}</li>
-                  <li style="margin-bottom: 10px;"><span style="color: #888;">• Phone:</span> ${phone || 'Not provided'}</li>
-                  <li style="margin-bottom: 10px;"><span style="color: #888;">• Service:</span> ${subject}</li>
-                </ul>
-                <p style="color: #888; font-size: 0.9em; margin-bottom: 0;"><strong>Message:</strong> ${message}</p>
-              </div>
+      <div style="line-height: 1.8;">
+        <p>Hello <strong>${name}</strong>,</p>
 
-              <p>
-  We appreciate your interest in PixelCraft and look forward to working with you.
-</p>
+        <p>
+          Thank you for contacting
+          <strong>PixelCraft | Creative Studio</strong>.
+        </p>
 
-<div style="
-background:linear-gradient(135deg,#0f172a,#111827);
-border:1px solid rgba(16,185,129,0.25);
-border-radius:16px;
-padding:24px;
-margin:30px 0;
-text-align:center;
-">
+        <p>
+          We have successfully received your inquiry and our team will get back to you shortly.
+        </p>
 
-  <div style="
-  color:#10b981;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:12px;
-  font-weight:bold;
-  ">
-  PixelCraft Creative Studio
-  </div>
+        <div style="
+          background-color:#0c0c0d;
+          padding:20px;
+          border-radius:15px;
+          margin:25px 0;
+          border:1px solid #1a1a1b;
+        ">
+          <p style="
+            color:#10b981;
+            font-weight:bold;
+            margin-top:0;
+            margin-bottom:15px;
+          ">
+            Here are the details you submitted:
+          </p>
 
-  <h3 style="
-  margin:0 0 10px;
-  color:#ffffff;
-  ">
-  Explore Our Portfolio
-  </h3>
+          <ul style="list-style:none;padding:0;margin:0;">
+            <li style="margin-bottom:10px;">
+              <span style="color:#888;">• Full Name:</span> ${name}
+            </li>
 
-  <p style="
-  color:#9ca3af;
-  font-size:14px;
-  margin-bottom:22px;
-  ">
-  Discover our latest creative projects, branding work,
-  websites and digital experiences.
-  </p>
+            <li style="margin-bottom:10px;">
+              <span style="color:#888;">• Email:</span> ${email}
+            </li>
 
-  <a
-    href="https://pixelcraftcreativestudio.vercel.app"
-    style="
-      background:#10b981;
-      color:#070708;
-      padding:14px 32px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      display:inline-block;
-      box-shadow:0 0 25px rgba(16,185,129,.45);
-    "
-  >
-    🚀 Visit Our Website
-  </a>
+            <li style="margin-bottom:10px;">
+              <span style="color:#888;">• Phone:</span> ${phone || "Not provided"}
+            </li>
 
-</div>
+            <li style="margin-bottom:10px;">
+              <span style="color:#888;">• Service:</span> ${subject}
+            </li>
+          </ul>
 
-<div style="
-text-align:center;
-margin-top:20px;
-">
-  <span style="
-  background:rgba(16,185,129,.12);
-  color:#10b981;
-  border:1px solid rgba(16,185,129,.2);
-  padding:8px 14px;
-  border-radius:999px;
-  font-size:12px;
-  ">
-  ⚡ Typical response time: Within 24 Hours
-  </span>
-</div>
+          <p style="
+            color:#888;
+            font-size:14px;
+            margin-top:15px;
+            margin-bottom:0;
+          ">
+            <strong>Message:</strong> ${message}
+          </p>
+        </div>
 
-<div style="
-text-align:center;
-margin-top:40px;
-color:#6b7280;
-font-size:12px;
-border-top:1px solid #1a1a1b;
-padding-top:25px;
-">
+        <p>
+          We appreciate your interest in PixelCraft and look forward to working with you.
+        </p>
 
-  <div style="
-  color:#10b981;
-  font-weight:bold;
-  margin-bottom:8px;
-  ">
-  PixelCraft | Creative Studio
-  </div>
+        <div style="
+          text-align:center;
+          margin-top:30px;
+          margin-bottom:30px;
+        ">
+          <a
+            href="https://pixelcraftcreativestudio.vercel.app"
+            style="
+              background:#10b981;
+              color:#070708;
+              padding:14px 28px;
+              border-radius:12px;
+              text-decoration:none;
+              font-weight:bold;
+              display:inline-block;
+            "
+          >
+            Visit Our Website
+          </a>
+        </div>
 
-  <div style="margin-bottom:6px;">
-    Building Brands. Designing Experiences.
-  </div>
+        <p style="margin-top:30px;">
+          Regards,<br>
+          <strong style="color:#10b981;">
+            PixelCraft | Creative Studio
+          </strong>
+        </p>
+      </div>
 
-  <div>
-    https://pixelcraftcreativestudio.vercel.app
-  </div>
+      <div style="
+        text-align:center;
+        margin-top:40px;
+        color:#555;
+        font-size:11px;
+        border-top:1px solid #1a1a1b;
+        padding-top:20px;
+      ">
+        © ${new Date().getFullYear()} PixelCraft | Creative Studio.<br>
+        https://pixelcraftcreativestudio.vercel.app
+      </div>
 
-  <div style="margin-top:15px;">
-    © ${new Date().getFullYear()} PixelCraft | Creative Studio. All rights reserved.
-  </div>
-
-</div>
-              
-              <p style="margin-top: 30px;">Regards,<br><strong style="color: #10b981;">PixelCraft | Creative Studio</strong></p>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px; color: #555; font-size: 11px; border-top: 1px solid #1a1a1b; padding-top: 20px;">
-              &copy; ${new Date().getFullYear()} PixelCraft | Creative Studio.
-            </div>
-          </div>
-        `,
+    </div>
+  `,
+};
         
       };
 
