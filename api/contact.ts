@@ -116,7 +116,7 @@ export default async function handler(req: any, res: any) {
 `,
     });
 
-    // Auto reply
+    // Auto reply to user 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
@@ -154,7 +154,6 @@ padding:40px;
 
 <h2 style="
 color:white;
-text-align:center;
 margin-top:35px;
 ">
 Thank You For Reaching Out
@@ -162,8 +161,8 @@ Thank You For Reaching Out
 
 <p style="
 color:#ccc;
-text-align:center;
-line-height:1.8;
+//text-align:center;
+line-height:1.2;
 ">
 Hello ${name},
 <br><br>
