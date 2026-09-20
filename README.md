@@ -79,7 +79,7 @@ https://www.linkedin.com/in/smitmorjariya/
 https://github.com/smitmorjariya
 
 
-📍 Gujarat, India
+📍 Jetpur, Gujarat, India
 
 ## 📄 License
 
