@@ -18,6 +18,7 @@ import { NavigationProvider, useNavigation } from './components/NavigationContex
 import LegalPage from './components/LegalPage';
 import ScrollProgressBar from './components/ScrollProgressBar';
 import { motion, AnimatePresence } from 'motion/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function AppContent() {
   const { page } = useNavigation();
@@ -181,6 +182,7 @@ function AppContent() {
       </main>
       <Footer />
       <WhatsAppWidget />
+      <SpeedInsights />
     </div>
   );
 }
