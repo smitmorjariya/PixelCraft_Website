@@ -6,6 +6,15 @@ PixelCraft is a modern and responsive digital agency website developed using Goo
 
 PixelCraft helps businesses establish a strong online presence through creative design, web development, branding, and digital solutions. The website focuses on delivering a clean UI, smooth navigation, and a conversion-focused experience.
 
+---
+
+## 📁 Project Screenshot
+
+<img width="1920" height="9365" alt="pixelcraftcreativestudio vercel app-2026-11-22-1544" src="https://github.com/user-attachments/assets/b17ffe3f-9afe-42b7-a323-6687679dae07" />
+
+---
+
+
 ## ✨ Features
 
 * 🎨 Modern and Professional UI Design
